@@ -24,8 +24,15 @@ public class DeptInfoService implements IDeptInfoService{
 	@Override
 	public boolean addDept(DeptInfo dept) {
 		// TODO Auto-generated method stub
-		
-		return deptInfoDao.addDept(dept);
+		System.out.println(dept.getDname());
+		try {
+			deptInfoDao.addDept(dept);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+			return false;
+		}
 	}
 
 	/** (non-Javadoc)

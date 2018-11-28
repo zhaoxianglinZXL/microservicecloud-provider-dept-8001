@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +29,7 @@ public class DeptInfoController {
 	//添加
 	@RequestMapping(value = "/addDept",method = RequestMethod.POST)
 	@ResponseBody
-	public boolean addDept(DeptInfo dept){
+	public boolean addDept(@RequestBody DeptInfo dept){
 		try {
 			return ideptInfoService.addDept(dept);
 		} catch (Exception e) {

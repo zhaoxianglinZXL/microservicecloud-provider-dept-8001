@@ -8,8 +8,8 @@
 	<!-- .resultMap中的column要与查询到的字段名一致，property要与实体类的属性一致。 -->
 	
 	<!-- 添加一条部门信息 -->
-	<insert id="addDept" parameterType="int" >
-		insert into DEPT(DNAME,DB_SOURCE) values(#{dname},DATABASE());
+	<insert id="addDept" parameterType="DeptInfo">
+		insert into DEPT(DNAME,DB_SOURCE) values(#{dept.dname},DATABASE())
 	</insert>
 	
 	<!-- 根据id查询一条部门信息 -->

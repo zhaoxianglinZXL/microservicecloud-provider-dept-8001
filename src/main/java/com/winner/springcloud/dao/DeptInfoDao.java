@@ -3,6 +3,7 @@ package com.winner.springcloud.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.winner.springcloud.model.DeptInfo;
 
@@ -21,7 +22,7 @@ import com.winner.springcloud.model.DeptInfo;
 public interface DeptInfoDao {//这是一个 通过注解实现增删改查的dao层
 	
 	//添加一条部门信息
-	public boolean addDept(DeptInfo dept);
+	public void addDept(@Param("dept") DeptInfo dept);
 	
 	//根据id查询一条部门信息
 	public DeptInfo queryDeptById(int id);
