@@ -9,7 +9,7 @@ mybatis:
   
 spring:
   application:
-    name: microservicecloud-dept                     # 对外暴露的微服务名称
+    name: microservicecloud-dept                     # 对外暴露的微服务名称 即注册中心显示的微服务名称
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource     # 当前数据源操作类型
     driver-class-name: com.mysql.jdbc.Driver         # mysql驱动包
@@ -21,3 +21,20 @@ spring:
       initial-size: 5                                # 初始化连接数
       max-total: 5                                   # 最大连接数
       max-wait-millis: 200                           # 等待连接获取的最大超时时间
+      
+eureka:
+  client:  #将客户端注册进Eureka服务列表中
+    service-url: 
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: microservicecloud-dept8001  # 将注册中心的名称（Status）更改
+    prefer-ip-address: true #设置访问路径为IP地址（ 尽量设置为ip地址  不设置有可能是一串未知的字符串--别人的正常 不知道是不是自己配置的问题 待完善）
+ 
+# 这个配置了之后点击微服务名称之后 info路径就不会报找不到的问题了 而是 显示以下的信息
+info: #父包中必须引入maven-resources-plugin插件才可以
+  app.name: winner-microservicecloud # 软件名字
+  company.name: www.winner.com       # 公司名字
+  build.artifactId: $project.artifactId$  
+  build.version: $project.version$
+
+    
