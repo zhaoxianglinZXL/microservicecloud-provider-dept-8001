@@ -10,7 +10,7 @@ mybatis:
   
   
 spring:
-  application:
+  application: #即使是多个服务者的情况也不可修改
     name: microservicecloud-dept                     # 对外暴露的微服务名称 即注册中心显示的微服务名称 即Application的对应值
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource     # 当前数据源操作类型
